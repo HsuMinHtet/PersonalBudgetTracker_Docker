@@ -4,11 +4,10 @@ import edu.miu.cs489.hsumin.personalbudgettracker.dto.requestDTO.CategoryRequest
 import edu.miu.cs489.hsumin.personalbudgettracker.dto.responseDTO.CategoryResponseDTO;
 import edu.miu.cs489.hsumin.personalbudgettracker.model.Category;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface CategoryMapper {
-   // @Mapping(source ="categoryRequestDTO.addressRequestDTO" ,target = "address")
     Category categoryRequestDTOToCategory(CategoryRequestDTO categoryRequestDTO);
-   // @Mapping(source = "accountHolder.address", target = "categoryResponseDTO")
     CategoryResponseDTO categoryToCategoryResponseDTO(Category category);
 }

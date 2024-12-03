@@ -8,6 +8,7 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface TransactionMapper {
+
     Transaction transactionRequestDTOToTransaction(TransactionRequestDTO transactionRequestDTO);
     @Mapping(source ="transaction.accountHolder" ,target = "accountHolderResponseDTO")
     @Mapping(source ="transaction.category" ,target = "categoryResponseDTO")

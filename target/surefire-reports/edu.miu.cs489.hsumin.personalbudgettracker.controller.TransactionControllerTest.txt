@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: edu.miu.cs489.hsumin.personalbudgettracker.controller.TransactionControllerTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.266 s -- in edu.miu.cs489.hsumin.personalbudgettracker.controller.TransactionControllerTest

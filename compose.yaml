@@ -7,7 +7,7 @@ services:
       - 'MYSQL_ROOT_PASSWORD=verysecret'
       - 'MYSQL_USER=myuser'
     ports:
-      - '3007:3306'
+      - '3306:3306'
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -16,14 +16,13 @@ services:
       start_period: 10s
 
   web:
-    image: 'budgettracker'
-#    "hsuminhtet/myspringweb:1.0.2"
+    image: 'hsuminhtet/budgettracker:1.0.1'
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8081:8090" #host_post:container_port
-#8090 is the port no for Tomcat & 8081 we can use to communicate through it
+      - "8081:8080" #host_post:container_port
+    #8090 is the port no for Tomcat & 8081 we can use to communicate through it
     depends_on:
       mysql:
         condition: service_healthy
@@ -31,9 +30,5 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/budgettracker
       SPRING_DATASOURCE_USERNAME: myuser
       SPRING_DATASOURCE_PASSWORD: secret
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create
       SPRING_JPA_DATABASE_PLATFORM:  org.hibernate.dialect.MySQLDialect
-
-
-
-
